@@ -1,0 +1,562 @@
+/* ==========================================================================
+   1. VARIÁVEIS DE DESIGN E CONFIGURAÇÕES GERAIS
+   ========================================================================== */
+:root {
+    --cor-primaria: #2e7d32;
+    --cor-primaria-escura: #1b5e20;
+    --cor-secundaria: #e8f5e9;
+    --cor-escura: #2c3e50;
+    --cor-texto: #555555;
+    --cor-clara: #f9fbf9;
+    --branco: #ffffff;
+    --sombra-suave: 0 10px 30px rgba(0,0,0,0.05);
+    --sombra-card: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--branco);
+    color: var(--cor-escura);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    line-height: 1.7;
+}
+
+/* ==========================================================================
+   2. MENU DE NAVEGAÇÃO (NAVBAR)
+   ========================================================================== */
+header {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.logo { 
+    font-size: 24px; 
+    font-weight: 700; 
+    color: var(--cor-escura); 
+}
+
+.logo i, .logo span { 
+    color: var(--cor-primaria); 
+}
+
+.nav-links { 
+    display: flex; 
+    list-style: none; 
+    align-items: center; 
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--cor-escura);
+    margin: 0 18px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover, .active-link { 
+    color: var(--cor-primaria) !important; 
+}
+
+.btn-contato {
+    background-color: var(--cor-primaria);
+    color: var(--branco) !important;
+    padding: 10px 22px;
+    border-radius: 25px;
+    transition: transform 0.3s, background 0.3s !important;
+}
+
+.btn-contato:hover { 
+    background-color: var(--cor-primaria-escura) !important; 
+    transform: translateY(-2px); 
+}
+
+/* Menu Mobile (Hambúrguer) */
+.menu-toggle { 
+    display: none; 
+    cursor: pointer; 
+}
+
+.bar { 
+    display: block; 
+    width: 25px; 
+    height: 3px; 
+    margin: 5px auto; 
+    background-color: var(--cor-escura); 
+    transition: 0.3s; 
+}
+
+/* ==========================================================================
+   3. PÁGINA INICIAL (HERO BANNER & INFO RÁPIDA)
+   ========================================================================== */
+.hero {
+    height: 85vh;
+    background: linear-gradient(rgba(20, 40, 20, 0.55), rgba(20, 40, 20, 0.55)), 
+                url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--branco);
+    margin-top: 70px;
+    padding: 0 20px;
+}
+
+.hero-content {
+    max-width: 800px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.hero-content h1 {
+    font-size: 52px;
+    font-weight: 800;
+    margin-bottom: 25px;
+    line-height: 1.2;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 40px;
+    font-weight: 400;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.btn-principal {
+    background-color: var(--cor-primaria);
+    color: var(--branco);
+    text-decoration: none;
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(46, 125, 50, 0.4);
+    transition: background 0.3s, transform 0.3s;
+    display: inline-block;
+}
+
+.btn-principal:hover {
+    background-color: var(--cor-primaria-escura);
+    transform: translateY(-3px);
+}
+
+.info-rapida {
+    padding: 100px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.info-rapida h2 {
+    font-size: 32px;
+    color: var(--cor-primaria);
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+.info-rapida p {
+    font-size: 18px;
+    color: var(--cor-texto);
+    line-height: 1.8;
+}
+
+/* ==========================================================================
+   4. ESTRUTURA DAS PÁGINAS INTERNAS (SOBRE, PRÁTICAS, CONTATO)
+   ========================================================================== */
+.conteudo-pagina, .pag-interna {
+    margin-top: 100px;
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    flex: 1;
+}
+
+.secao-titulo {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.secao-titulo h2 { 
+    font-size: 38px; 
+    color: var(--cor-primaria); 
+    font-weight: 700; 
+    margin-bottom: 15px;
+}
+
+.subtitulo { 
+    color: #7f8c8d; 
+    font-size: 18px; 
+    max-width: 600px; 
+    margin: 0 auto; 
+}
+
+/* ==========================================================================
+   5. PÁGINA: SOBRE NÓS
+   ========================================================================== */
+.sobre-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.secao-flex {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 100px;
+}
+
+.flex-reverso { 
+    flex-direction: row-reverse; 
+}
+
+.texto-flex { 
+    flex: 1; 
+}
+
+.texto-flex h3 { 
+    font-size: 28px; 
+    color: var(--cor-primaria); 
+    margin-bottom: 20px; 
+}
+
+.texto-flex p { 
+    font-size: 17px; 
+    color: var(--cor-texto); 
+    margin-bottom: 20px; 
+}
+
+.imagem-flex { 
+    flex: 1; 
+}
+
+.imagem-flex img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: var(--sombra-card);
+}
+
+/* Tripé da Sustentabilidade */
+.tripe-sustentabilidade {
+    background-color: var(--cor-clara);
+    padding: 60px 40px;
+    border-radius: 20px;
+    margin-bottom: 100px;
+    box-shadow: var(--sombra-suave);
+}
+
+.titulo-centralizado { 
+    text-align: center; 
+    font-size: 28px; 
+    margin-bottom: 10px; 
+    color: var(--cor-primaria); 
+}
+
+.sub-centralizado { 
+    text-align: center; 
+    color: #7f8c8d; 
+    margin-bottom: 40px; 
+}
+
+.tripe-grid { 
+    display: flex; 
+    gap: 30px; 
+}
+
+.tripe-item {
+    flex: 1;
+    background: var(--branco);
+    padding: 35px 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: var(--sombra-card);
+    transition: transform 0.3s;
+}
+
+.tripe-item:hover { 
+    transform: translateY(-5px); 
+}
+
+.tripe-item i { 
+    font-size: 36px; 
+    color: var(--cor-primaria); 
+    margin-bottom: 15px; 
+}
+
+.tripe-item h4 { 
+    font-size: 20px; 
+    margin-bottom: 12px; 
+}
+
+.tripe-item p { 
+    font-size: 15px; 
+    color: var(--cor-texto); 
+}
+
+.lista-customizada { 
+    list-style: none; 
+    margin-top: 20px; 
+}
+
+.lista-customizada li { 
+    font-size: 17px; 
+    margin-bottom: 15px; 
+    display: flex; 
+    align-items: center; 
+    color: var(--cor-texto); 
+}
+
+.lista-customizada i { 
+    color: var(--cor-primaria); 
+    margin-right: 15px; 
+    font-size: 20px; 
+}
+
+/* ==========================================================================
+   6. PÁGINA: PRÁTICAS (CARDS HORIZONTAIS COM IMAGEM)
+   ========================================================================== */
+.praticas-detalhado { 
+    max-width: 1000px; 
+    margin: 0 auto; 
+}
+
+.pratica-card-moderno {
+    display: flex;
+    background: var(--branco);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 50px;
+    box-shadow: var(--sombra-suave);
+    border: 1px solid #edf2f7;
+    transition: box-shadow 0.3s;
+}
+
+.pratica-card-moderno:hover { 
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
+}
+
+.pratica-foto { 
+    flex: 1; 
+    min-height: 250px; 
+}
+
+.pratica-foto img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+.pratica-info { 
+    flex: 1.3; 
+    padding: 40px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+}
+
+.pratica-cabecalho { 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    margin-bottom: 15px; 
+}
+
+.pratica-cabecalho i { 
+    font-size: 26px; 
+    color: var(--cor-primaria); 
+}
+
+.pratica-cabecalho h3 { 
+    font-size: 24px; 
+    color: var(--cor-escura); 
+}
+
+.pratica-info p { 
+    color: var(--cor-texto); 
+    font-size: 16px; 
+    margin-bottom: 25px; 
+}
+
+.tag {
+    align-self: flex-start;
+    background-color: var(--cor-secundaria);
+    color: var(--cor-primaria-escura);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   7. PÁGINA: CONTATO
+   ========================================================================== */
+.contact { 
+    background-color: var(--cor-secundaria); 
+    width: 100%; 
+}
+
+.contact-container { 
+    max-width: 600px; 
+    margin: 0 auto; 
+}
+
+form { 
+    margin-top: 30px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+}
+
+form input, form textarea { 
+    padding: 15px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    font-size: 16px; 
+}
+
+form button { 
+    background-color: var(--cor-primaria); 
+    color: var(--branco); 
+    border: none; 
+    padding: 15px; 
+    border-radius: 5px; 
+    font-size: 18px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    transition: background 0.3s;
+}
+
+form button:hover { 
+    background-color: var(--cor-primaria-escura); 
+}
+
+#form-mensagem { 
+    margin-top: 20px; 
+    padding: 10px; 
+    border-radius: 5px; 
+    font-weight: bold; 
+}
+
+.sucesso { 
+    background-color: #c8e6c9; 
+    color: #256029; 
+}
+
+.hidden { 
+    display: none; 
+}
+
+/* ==========================================================================
+   8. ANIMAÇÕES E RODAPÉ (FOOTER)
+   ========================================================================== */
+.animate-in {
+    animation: fadeInUp 0.8s ease-in-out;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+footer { 
+    background-color: var(--cor-escura); 
+    color: var(--branco); 
+    text-align: center; 
+    padding: 30px; 
+    margin-top: auto; 
+    font-size: 15px;
+}
+
+/* ==========================================================================
+   9. RESPONSIVIDADE (MOBILE)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .nav-links { 
+        display: none; 
+        flex-direction: column; 
+        width: 100%; 
+        position: absolute; 
+        top: 70px; 
+        left: 0; 
+        background-color: var(--branco); 
+        padding: 20px 0; 
+        box-shadow: 0 10px 10px rgba(0,0,0,0.05); 
+    }
+    
+    .nav-links.active { 
+        display: flex; 
+    }
+    
+    .nav-links li { 
+        margin: 12px 0; 
+    }
+    
+    .menu-toggle { 
+        display: block; 
+    }
+    
+    .conteudo-pagina, .pag-interna { 
+        padding: 40px 20px; 
+    }
+    
+    .secao-flex { 
+        flex-direction: column !important; 
+        gap: 30px; 
+        margin-bottom: 60px; 
+    }
+    
+    .imagem-flex img { 
+        height: 250px; 
+    }
+    
+    .tripe-grid { 
+        flex-direction: column; 
+        gap: 20px; 
+    }
+    
+    .tripe-sustentabilidade { 
+        padding: 30px 20px; 
+        margin-bottom: 60px; 
+    }
+    
+    .pratica-card-moderno { 
+        flex-direction: column; 
+        margin-bottom: 40px; 
+    }
+    
+    .pratica-foto { 
+        height: 200px; 
+        min-height: auto; 
+    }
+    
+    .pratica-info { 
+        padding: 25px; 
+    }
+    
+    .hero-content h1 {
+        font-size: 36px;
+    }
+}

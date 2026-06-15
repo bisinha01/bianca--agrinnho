@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroSustentável | Contato</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fa-solid fa-leaf"></i> Agro<span>Sustentável</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li><a href="praticas.html">Práticas</a></li>
+                <li><a href="contato.html" class="active-link btn-contato">Contato</a></li>
+            </ul>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <section class="contact pag-interna">
+        <div class="contact-container">
+            <h2>Fale Conosco</h2>
+            <p>Tem dúvidas sobre como migrar sua produção para o modelo sustentável? Mande uma mensagem.</p>
+            
+            <form id="agro-form">
+                <input type="text" id="nome" placeholder="Seu Nome" required>
+                <input type="email" id="email" placeholder="Seu E-mail" required>
+                <textarea id="mensagem" placeholder="Como podemos ajudar sua lavoura?" rows="5" required></textarea>
+                <button type="submit">Enviar Mensagem</button>
+            </form>
+            <div id="form-mensagem" class="hidden"></div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 AgroSustentável. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
